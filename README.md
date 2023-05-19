@@ -5,7 +5,7 @@ A Qemu-based Emulator for Cortex-A72 64-Bit Platform Running with Ubuntu 16.04.6
 ## How to Run
 
 ```bash
-git clone https://github.com/ljishen/Cortex-A72-Emulator.git
+git clone https://github.com/borekon/Cortex-A72-Emulator.git
 cd Cortex-A72-Emulator
 docker run -ti --rm \
     --mount type=bind,src=`pwd`/images,dst=/emu \
@@ -27,7 +27,7 @@ CPU_THREADS=1
 # number of discrete sockets in the system
 CPU_SOCKETS=1
 # initial amount of guest memory
-MEMORY=12G
+MEMORY=2G
 ```
 They should meet the cpu topology requirement: `sockets * cores * threads < smp_cpus`
 
