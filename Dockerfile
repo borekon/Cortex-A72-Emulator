@@ -1,27 +1,16 @@
-FROM alpine:3 AS builder
-LABEL maintainer="jliu120@ucsc.edu"
-LABEL edu.ucsc.version="0.0.1"
-
-RUN apk add --no-cache \
-    --repository \
-    http://dl-cdn.alpinelinux.org/alpine/edge/testing \
-    cloud-utils
-
-RUN addgroup -g 1000 -S cloud-init && \
-    adduser -u 1000 -S cloud-init -G cloud-init
-USER cloud-init
+FROM ubuntu:20.04 AS builder2
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install cloud-image-utils -y
 
 WORKDIR /tmp
 COPY configs ./
 RUN cloud-localds seed.img user-data meta-data
-
 
 FROM alpine:3
 
 RUN apk add --no-cache \
     qemu-system-aarch64
 
-COPY --from=builder /tmp/seed.img /
+COPY --from=builder2 /tmp/seed.img /
 WORKDIR /emu
 
 # type of CPU
