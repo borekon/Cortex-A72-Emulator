@@ -35,7 +35,7 @@ ENV CPU_THREADS 1
 # number of discrete sockets in the system
 ENV CPU_SOCKETS 1
 # initial amount of guest memory
-ENV MEMORY 12G
+ENV MEMORY 2G
 
 # hostfwd=tcp::22-:22 is required to map the guestport to the port within the container
 ENTRYPOINT ["sh", "-c", \
