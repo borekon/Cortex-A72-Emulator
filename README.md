@@ -1,5 +1,5 @@
 # Cortex-A72-Emulator
-A Qemu-based Emulator for Cortex-A72 64-Bit Platform Running with Ubuntu 16.04.6 LTS (Xenial Xerus).
+A Qemu-based Emulator for Cortex-A72 64-Bit Platform Running with Ubuntu 20.04 LTS (focal fossa).
 
 
 ## How to Run
