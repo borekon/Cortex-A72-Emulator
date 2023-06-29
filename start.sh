@@ -1,6 +1,6 @@
 #!/bin/bash
 docker run -ti --rm \
-	--mount type=bind,src=i$(pwd)/images,dst=/emu \
+	--mount type=bind,src=$(pwd)/images,dst=/emu \
     -e MEMORY=2G \
     -e NUM_CPUS=1 \
     -e CPU_CORES=4 \    
