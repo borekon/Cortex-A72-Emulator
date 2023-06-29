@@ -25,6 +25,9 @@ ENV CPU_THREADS 1
 ENV CPU_SOCKETS 1
 # initial amount of guest memory
 ENV MEMORY 2G
+# default image
+ENV IMG ubuntu-16.04-server-cloudimg-arm64-uefi1.img
+
 
 # hostfwd=tcp::22-:22 is required to map the guestport to the port within the container
 ENTRYPOINT ["sh", "-c", \
@@ -35,7 +38,7 @@ ENTRYPOINT ["sh", "-c", \
             -m size=$MEMORY \
             -nographic \
             -bios QEMU_EFI.fd \
-            -drive if=none,file=ubuntu-16.04-server-cloudimg-arm64-uefi1.img,id=hd0 \
+            -drive if=none,file=$IMG,id=hd0 \
             -device virtio-blk-device,drive=hd0 \
             -drive if=none,file=/seed.img,id=seed,format=raw \
             -device virtio-blk-device,drive=seed \
