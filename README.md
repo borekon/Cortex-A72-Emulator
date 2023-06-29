@@ -11,6 +11,7 @@ docker run -ti --rm \
     --mount type=bind,src=$(pwd)/images,dst=/emu \
     [-e NUM_CPUS=X] [-e CPU_CORES=X] [-e CPU_THREADS=X] [-e CPU_SOCKETS=X] \
     [-e MEMORY=X] \
+    [-e IMG filename.img] \
     -p 5555:22 \
     ljishen/cortex-a72-emulator
 ```
@@ -28,9 +29,11 @@ CPU_THREADS=1
 CPU_SOCKETS=1
 # initial amount of guest memory
 MEMORY=2G
+# default ubuntu image
+IMG ubuntu-16.04-server-cloudimg-arm64-uefi1.img
 ```
 They should meet the cpu topology requirement: `sockets * cores * threads < smp_cpus`
-
+When specified IMG file, only filename should be specified (without any kind of path) and must be in the _images_ folder.
 
 ## Size of the Disk Image
 
