@@ -33,6 +33,7 @@ MEMORY=2G
 IMG ubuntu-16.04-server-cloudimg-arm64-uefi1.img
 ```
 They should meet the cpu topology requirement: `sockets * cores * threads < smp_cpus`
+
 When specified IMG file, only filename should be specified (without any kind of path) and must be in the _images_ folder.
 
 ## Size of the Disk Image
